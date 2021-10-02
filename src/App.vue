@@ -5,7 +5,6 @@
     </button>
     <button v-else class="modal-button" @click="toggleModal">Close</button>
   </div>
-  <p>test</p>
     <SimpleModal v-bind:modalOpen="isOpen">
       <h1>Test</h1>
       <p>using a slot to add content to the modal.</p>
