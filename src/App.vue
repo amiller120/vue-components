@@ -1,10 +1,21 @@
 <template>
-  <div>
     <button v-if="!isOpen" class="modal-button" @click="toggleModal">
       Open
     </button>
     <button v-else class="modal-button" @click="toggleModal">Close</button>
-  </div>
+    
+    <form class="form-top">
+      <BasicInput
+        v-model="input1"
+        label="input1Title"
+        />
+
+        <BasicInput
+        v-model="input2"
+        label="input2Title"
+         />
+    </form>
+
     <SimpleModal v-bind:modalOpen="isOpen">
       <h1>Test</h1>
       <p>using a slot to add content to the modal.</p>
@@ -14,12 +25,17 @@
 
 <script>
 import SimpleModal from "./components/modal.vue";
+import BasicInput from "./components/Form/BaseInput.vue"
 
 export default {
   name: "App",
   data() {
     return {
       isOpen: false,
+      input1: "",
+      input1Title: "title",
+      input2Title: "title",
+      input2: 0,
     };
   },
   methods: {
@@ -29,6 +45,7 @@ export default {
   },
   components: {
     SimpleModal,
+    BasicInput
   },
 };
 </script>
@@ -69,10 +86,19 @@ export default {
   outline: 0;
 }
 
+
 @media (min-width: 768px) {
   .modal-button {
     font-size: 24px;
     min-width: 196px;
   }
+}
+
+.form-top{
+  margin-top: 2rem;
+}
+
+.field{
+  margin-bottom:2rem;
 }
 </style>
