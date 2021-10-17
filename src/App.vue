@@ -1,31 +1,27 @@
 <template>
-    <button v-if="!isOpen" class="modal-button" @click="toggleModal">
-      Open
-    </button>
-    <button v-else class="modal-button" @click="toggleModal">Close</button>
-    
-    <form class="form-top">
-      <BasicInput
-        v-model="input1"
-        label="input1Title"
-        />
+  <button v-if="!isOpen" class="modal-button" @click="toggleModal">Open</button>
+  <button v-else class="modal-button" @click="toggleModal">Close</button>
 
-        <BasicInput
-        v-model="input2"
-        label="input2Title"
-         />
-    </form>
+  <form class="form-top">
+    <BasicInput v-model="input1" label="input1Title" />
 
-    <SimpleModal v-bind:modalOpen="isOpen">
-      <h1>Test</h1>
-      <p>using a slot to add content to the modal.</p>
-    </SimpleModal>
-  
+    <BasicInput v-model="input2" label="input2Title" />
+  </form>
+
+  <SimpleModal v-bind:modalOpen="isOpen">
+    <SimpleCard
+      imageUri="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd.newsweek.com%2Fen%2Ffull%2F1119776%2Fgettyimages-159044749.jpg&f=1&nofb=1"
+    >
+      <h4><b>John Doe</b></h4>
+      <p>Architect & Engineer</p>
+    </SimpleCard>
+  </SimpleModal>
 </template>
 
 <script>
 import SimpleModal from "./components/modal.vue";
-import BasicInput from "./components/Form/BaseInput.vue"
+import BasicInput from "./components/Form/BaseInput.vue";
+import SimpleCard from "./components/SimpleCard.vue";
 
 export default {
   name: "App",
@@ -45,7 +41,8 @@ export default {
   },
   components: {
     SimpleModal,
-    BasicInput
+    BasicInput,
+    SimpleCard,
   },
 };
 </script>
@@ -86,7 +83,6 @@ export default {
   outline: 0;
 }
 
-
 @media (min-width: 768px) {
   .modal-button {
     font-size: 24px;
@@ -94,11 +90,11 @@ export default {
   }
 }
 
-.form-top{
+.form-top {
   margin-top: 2rem;
 }
 
-.field{
-  margin-bottom:2rem;
+.field {
+  margin-bottom: 2rem;
 }
 </style>
