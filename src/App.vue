@@ -11,6 +11,7 @@
   <SimpleModal v-bind:modalOpen="isOpen">
     <SimpleCard
       imageUri="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fd.newsweek.com%2Fen%2Ffull%2F1119776%2Fgettyimages-159044749.jpg&f=1&nofb=1"
+      cardWidth="40%"
     >
       <h4><b>John Doe</b></h4>
       <p>Architect & Engineer</p>

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="card">
-      <img v-bind:src="imageUri" />
+    <div class="card" v-bind:style="{ width: cardWidth }">
+      <img v-bind:src="imageUri" style="width:100%"/>
       <div class="container">
         <slot></slot>
       </div>
@@ -14,6 +14,11 @@ export default {
         imageUri:{
             type: String,
             required: true
+        },
+        cardWidth:{
+          type: String,
+          required: false,
+          default: '100%'
         }
     }
 };
@@ -33,9 +38,5 @@ export default {
 /* Add some padding inside the card container */
 .container {
   padding: 2px 16px;
-}
-
-img {
-    width: 100%;
 }
 </style>
